@@ -1,0 +1,41 @@
+// 替换为你自己的高德地图 Key
+// 申请地址: https://lbs.amap.com/api/javascript-api/guide/abc/prepare
+export const AMAP_CONFIG = {
+  key: 'your-amap-web-key-here',
+  securityJsCode: 'your-amap-security-code-here'
+};
+
+export function ensureAmapSecurity() {
+  if (typeof window !== 'undefined') {
+    window._AMapSecurityConfig = {
+      securityJsCode: AMAP_CONFIG.securityJsCode
+    };
+  }
+}
+
+export function loadAmapScript() {
+  return new Promise((resolve, reject) => {
+    if (typeof window === 'undefined') {
+      reject(new Error('非浏览器环境'));
+      return;
+    }
+    ensureAmapSecurity();
+    if (window.AMap) {
+      resolve(window.AMap);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = `https://webapi.amap.com/maps?v=2.0&key=${AMAP_CONFIG.key}&plugin=AMap.Geocoder`;
+    script.async = true;
+    script.onload = () => {
+      const checkAMap = (attempts = 0) => {
+        if (window.AMap) resolve(window.AMap);
+        else if (attempts < 20) setTimeout(() => checkAMap(attempts + 1), 100);
+        else reject(new Error('AMap 初始化超时，请检查 Key 是否有效'));
+      };
+      checkAMap();
+    };
+    script.onerror = () => reject(new Error('地图脚本加载失败'));
+    document.head.appendChild(script);
+  });
+}

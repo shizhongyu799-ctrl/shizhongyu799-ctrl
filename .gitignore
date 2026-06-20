@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+frontend/dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+backend/err.log
+backend/out.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+backend/data/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+backend/.env
+backend/.env.local
+
+# 敏感配置（替换为你自己的配置）
+backend/src/config/config.js
+frontend/src/config/amap.js
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.node
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test & debug
+*.pid
+*.seed
+coverage/
+.nyc_output/
+
+# Vite
+.vite/
+*.local
+
+# Export files
+backend/exports/*.xlsx
+!backend/exports/.gitkeep

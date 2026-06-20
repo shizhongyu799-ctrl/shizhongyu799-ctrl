@@ -1,0 +1,21 @@
+{
+  "name": "customer-map-backend",
+  "version": "1.0.0",
+  "description": "销售客户地图管理系统 - 后端",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "init-env": "node src/scripts/init-env.js",
+    "init-db": "node src/scripts/init-db.js",
+    "test": "node tests/run-all.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.12.0"
+  }
+}

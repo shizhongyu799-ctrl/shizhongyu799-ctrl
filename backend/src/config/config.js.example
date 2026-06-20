@@ -1,0 +1,20 @@
+module.exports = {
+  PORT: 3000,
+  JWT_SECRET: 'change-this-to-a-long-random-string',
+  JWT_EXPIRES_IN: '7d',
+  DB: {
+    host: 'localhost',
+    port: 5432,
+    database: 'customer_map',
+    user: 'postgres',
+    password: 'your-postgres-password'
+  },
+  SUPER_ADMIN: {
+    username: 'admin',
+    password: 'admin123456',
+    realName: '超级管理员'
+  },
+  HEALTH_CHECK_DAYS: 30,
+  REMINDER_DAYS_BEFORE: 1,
+  AMAP_KEY: 'your-amap-web-key-here'
+};

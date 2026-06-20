@@ -1,0 +1,11 @@
+{
+  "name": "销售客户地图管理系统",
+  "version": "1.0.0",
+  "main": "backend/src/app.js",
+  "scripts": {
+    "install-backend": "cd backend && npm install",
+    "init-db": "cd backend && npm run init-db",
+    "start-backend": "cd backend && npm start",
+    "test": "cd backend && npm test"
+  }
+}
